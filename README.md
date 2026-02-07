@@ -1,3 +1,15 @@
+# 🌱 Soil Fertility Prediction Using Random Forest
+
+🚀 **Live API Demo (Swagger UI):**  
+https://soil-fertility-prediction-using-random.onrender.com/docs
+
+An end-to-end **Machine Learning project** that predicts whether soil is **Fertile** or **Not Fertile** using soil chemical and micronutrient properties.  
+The trained model is deployed as a **FastAPI REST API**, containerized using **Docker**, and tested using **Swagger UI**.
+
+---
+
+
+
 ## 📸 Project Interface & API Screenshots
 
 This section demonstrates the **actual working interface** of the Soil Fertility Classifier API using **Swagger UI**, including real inputs and predictions for different soil conditions.
@@ -182,4 +194,5 @@ http://localhost:8000
 
 Swagger UI (for testing):
 http://localhost:8000/docs
+
 
