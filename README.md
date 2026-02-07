@@ -10,7 +10,7 @@ The root endpoint confirms that the FastAPI server is running successfully.
 
 **Endpoint:** `GET /`
 
-![API Home](./screenshots/Home.png)
+![API Home](./Screenshots/Home.png)
 
 ---
 
@@ -18,7 +18,7 @@ The root endpoint confirms that the FastAPI server is running successfully.
 
 Execution of the root endpoint directly from Swagger UI.
 
-![GET Root Output](./screenshots/GET_output.png)
+![GET Root Output](./Screenshots/GET_output.png)
 
 ---
 
@@ -28,7 +28,7 @@ JSON input values submitted to the `/predict` endpoint for a soil sample classif
 
 This includes macronutrients, micronutrients, pH, EC, and OC values entered through Swagger UI.
 
-![Fertile Input](./screenshots/Fertile_input.png)
+![Fertile Input](./Screenshots/Fertile_input.png)
 
 ---
 
@@ -36,7 +36,7 @@ This includes macronutrients, micronutrients, pH, EC, and OC values entered thro
 
 Prediction output returned by the model for the fertile soil input, showing high confidence.
 
-![Fertile Output](./screenshots/Fertile_output.png)
+![Fertile Output](./Screenshots/Fertile_output.png)
 
 ---
 
@@ -44,7 +44,7 @@ Prediction output returned by the model for the fertile soil input, showing high
 
 Prediction output for a soil sample classified as **Not Fertile**, demonstrating the model’s ability to distinguish soil quality accurately.
 
-![Not Fertile Output](./screenshots/not_fertile_output.png)
+![Not Fertile Output](./Screenshots/not_fertile_output.png)
 
 ---
 
@@ -61,7 +61,7 @@ All visualizations are generated after model training and evaluation.
 
 This plot compares the **actual soil fertility classes** with the **model’s predicted classes** across sample inputs, showing prediction accuracy and consistency.
 
-![Actual vs Predicted](./screenshots/actual_vs_predicted.png)
+![Actual vs Predicted](./Screenshots/actual_vs_predicted.png)
 
 ---
 
@@ -69,7 +69,7 @@ This plot compares the **actual soil fertility classes** with the **model’s pr
 
 This bar chart compares the **distribution of fertility classes** in the test dataset versus the model predictions, indicating balanced learning and minimal bias.
 
-![Class Distribution](./screenshots/class_distribution.png)
+![Class Distribution](./Screenshots/class_distribution.png)
 
 ---
 
@@ -77,7 +77,7 @@ This bar chart compares the **distribution of fertility classes** in the test da
 
 The confusion matrix provides a detailed breakdown of **correct and incorrect classifications** for each fertility class.
 
-![Confusion Matrix](./screenshots/confusion_matrix.png)
+![Confusion Matrix](./Screenshots/confusion_matrix.png)
 
 ---
 
@@ -85,7 +85,7 @@ The confusion matrix provides a detailed breakdown of **correct and incorrect cl
 
 This visualization shows the **relative importance of soil parameters** (N, P, K, pH, EC, micronutrients, etc.) used by the Random Forest model during prediction.
 
-![Feature Importance](./screenshots/feature_importance.png)
+![Feature Importance](./Screenshots/feature_importance.png)
 
 ---
 
@@ -182,3 +182,4 @@ http://localhost:8000
 
 Swagger UI (for testing):
 http://localhost:8000/docs
+
