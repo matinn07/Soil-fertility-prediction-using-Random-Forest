@@ -1,198 +1,184 @@
-# 🌱 Soil Fertility Prediction Using Random Forest
+## 📸 Project Interface & API Screenshots
 
-An end-to-end Machine Learning project that predicts whether soil is Fertile or Not Fertile based on soil chemical and micronutrient properties.  
-The trained model is deployed as a FastAPI REST API, containerized using Docker, and tested using Swagger UI.
-
----
-
-## Live Demo
-
-https://<your-render-app>.onrender.com/docs
+This section demonstrates the **actual working interface** of the Soil Fertility Classifier API using **Swagger UI**, including real inputs and predictions for different soil conditions.
 
 ---
 
-## Problem Statement
+### 🏠 API Home / Root Endpoint
 
-Soil fertility assessment is critical for agricultural productivity.  
-Traditional soil testing methods are manual, time-consuming, and require expert interpretation.
+The root endpoint confirms that the FastAPI server is running successfully.
 
-This project automates soil fertility classification using machine learning.
+**Endpoint:** `GET /`
 
----
-
-## Objective
-
-- Accept soil nutrient parameters as input  
-- Predict whether the soil is Fertile or Not Fertile  
-- Return a prediction along with a confidence score (probability)
+![API Home](./screenshots/Home.png)
 
 ---
 
-## Solution Overview
+### 🔍 GET Root Endpoint – Swagger UI Execution
 
-- Trained a Random Forest Classifier on soil nutrient data  
-- Evaluated the model using confusion matrix and class distribution  
-- Built a FastAPI backend for real-time inference  
-- Containerized the application using Docker  
-- Tested the system using Swagger UI  
+Execution of the root endpoint directly from Swagger UI.
+
+![GET Root Output](./screenshots/GET_output.png)
 
 ---
 
-## Dataset Description
+### 🌱 Fertile Soil – Input Parameters
 
-Each soil sample contains the following 12 features:
+JSON input values submitted to the `/predict` endpoint for a soil sample classified as **Fertile**.
 
-| Feature | Description |
-|-------|------------|
-| N | Nitrogen |
-| P | Phosphorus |
-| K | Potassium |
-| ph | Soil pH |
-| ec | Electrical Conductivity |
-| oc | Organic Carbon |
-| S | Sulphur |
-| zn | Zinc |
-| fe | Iron |
-| cu | Copper |
-| Mn | Manganese |
-| B | Boron |
+This includes macronutrients, micronutrients, pH, EC, and OC values entered through Swagger UI.
 
-Target Variable  
-0 → Not Fertile  
-1 → Fertile  
+![Fertile Input](./screenshots/Fertile_input.png)
 
 ---
 
-## Machine Learning Model
+### ✅ Fertile Soil – Prediction Result
 
-Algorithm: Random Forest Classifier  
+Prediction output returned by the model for the fertile soil input, showing high confidence.
 
-- Handles non-linear relationships  
-- Robust to noise  
-- Suitable for tabular datasets  
-- Provides feature importance for interpretability  
+![Fertile Output](./screenshots/Fertile_output.png)
 
 ---
 
-## Model Evaluation
+### 🚫 Not Fertile Soil – Prediction Result
 
-### Actual vs Predicted Fertility
-![Actual vs Predicted](actual_vs_predicted.png)
+Prediction output for a soil sample classified as **Not Fertile**, demonstrating the model’s ability to distinguish soil quality accurately.
 
-### Class Distribution (Actual vs Predicted)
-![Class Distribution](class_distribution.png)
-
-### Confusion Matrix
-![Confusion Matrix](confusion_matrix.png)
-
-### Feature Importance
-![Feature Importance](feature_importance.png)
+![Not Fertile Output](./screenshots/not_fertile_output.png)
 
 ---
 
-## System Architecture
+> All screenshots are taken directly from the live Swagger UI of the Soil Fertility Classifier FastAPI application.
 
-Client (Swagger UI / Postman)  
-↓  
-FastAPI REST API  
-↓  
-Random Forest Model  
-↓  
-Prediction + Probability  
+## 📊 Model Performance & Evaluation Visualizations
+
+This section highlights the **performance and reliability** of the Random Forest model used for soil fertility classification.  
+All visualizations are generated after model training and evaluation.
 
 ---
 
-## API Endpoints
+### 📈 Actual vs Predicted Fertility (Sample)
 
-### Health Check  
-GET /
+This plot compares the **actual soil fertility classes** with the **model’s predicted classes** across sample inputs, showing prediction accuracy and consistency.
 
-```json
-{
-  "message": "Soil Fertility Classifier API is running"
-}
+![Actual vs Predicted](./screenshots/actual_vs_predicted.png)
 
-Predict Soil Fertility
+---
 
-POST /predict
+### 📊 Class Distribution (Actual vs Predicted)
 
-Sample Fertile Input
+This bar chart compares the **distribution of fertility classes** in the test dataset versus the model predictions, indicating balanced learning and minimal bias.
 
-{
-  "N": 270,
-  "P": 9.9,
-  "K": 444,
-  "ph": 7.63,
-  "ec": 0.40,
-  "oc": 0.86,
-  "S": 11.8,
-  "zn": 0.25,
-  "fe": 0.76,
-  "cu": 1.69,
-  "Mn": 2.43,
-  "B": 2.26
-}
+![Class Distribution](./screenshots/class_distribution.png)
+
+---
+
+### 🧮 Confusion Matrix – Soil Fertility Prediction
+
+The confusion matrix provides a detailed breakdown of **correct and incorrect classifications** for each fertility class.
+
+![Confusion Matrix](./screenshots/confusion_matrix.png)
+
+---
+
+### 🌾 Feature Importance – Random Forest Model
+
+This visualization shows the **relative importance of soil parameters** (N, P, K, pH, EC, micronutrients, etc.) used by the Random Forest model during prediction.
+
+![Feature Importance](./screenshots/feature_importance.png)
+
+---
+
+> These evaluation results confirm that the model generalizes well and identifies key soil features influencing fertility classification.
+
+## 🏗️ System Architecture & Workflow
+
+This section explains how the complete system works — from user input to model prediction — in a clear end-to-end flow.
+
+---
+
+### 🔄 End-to-End Workflow
+
+1. User opens the **Swagger UI** interface  
+2. Soil nutrient values are entered in JSON format  
+3. Request is sent to the **FastAPI backend**  
+4. Backend loads the trained **Random Forest model**  
+5. Model performs inference on the input data  
+6. API returns:
+   - Soil fertility status
+   - Prediction confidence score  
+
+---
+
+### 🧠 Architecture Overview
+
+User / Client (Swagger UI, Postman)
+↓
+FastAPI REST API
+↓
+Random Forest ML Model
+↓
+Fertility Prediction (JSON)
 
 
-Fertile Output
 
-{
-  "soil_fertility": "Fertile",
-  "fertility_probability": 0.93
-}
+---
 
+### 🛠️ Technology Stack
 
-Not Fertile Output
+- **Programming Language:** Python  
+- **Machine Learning:** Scikit-learn (Random Forest Classifier)  
+- **Backend Framework:** FastAPI  
+- **Data Validation:** Pydantic  
+- **Model Serialization:** Pickle  
+- **API Testing:** Swagger UI  
+- **Containerization:** Docker  
 
-{
-  "soil_fertility": "Not Fertile",
-  "fertility_probability": 0.36
-}
+---
 
-API Testing (Swagger UI)
+### ✅ Key Design Decisions
 
-JSON-based input
+- Used **Random Forest** for robustness on tabular soil data  
+- FastAPI chosen for **high performance and automatic docs**  
+- Pydantic ensures **strict input validation**  
+- Docker enables **portable and reproducible deployment**
 
-Input validation using Pydantic
+---
 
-Instant prediction response
+> This modular architecture allows easy scaling, deployment, and future enhancements such as monitoring or retraining pipelines.
+## 🐳 Dockerization & Deployment
 
-Docker Usage
+This project is fully containerized using **Docker**, ensuring consistent behavior across local development and production environments.
 
-Build Docker Image
+---
 
+### 🐳 Docker Overview
+
+- The FastAPI application is packaged into a Docker image
+- All dependencies are installed via `requirements.txt`
+- The trained Random Forest model is bundled inside the container
+- Uvicorn is used as the ASGI server
+
+This allows the API to run identically on any system that supports Docker.
+
+---
+
+### 📦 Docker Build
+
+Build the Docker image using the following command:
+
+bash
 docker build -t soil-fertility-api .
-
 
 Run Docker Container
 
+Run the container and expose the API on port 8000:
+
 docker run -p 8000:8000 soil-fertility-api
 
+Once running, the API will be available at:
 
-Swagger UI
+http://localhost:8000
+
+Swagger UI (for testing):
 http://localhost:8000/docs
-
-Project Structure
-├── app.py
-├── Dockerfile
-├── requirements.txt
-├── README.md
-├── model/
-│   └── rf_model.pkl
-├── data/
-│   └── soil_data.csv
-└── src/
-    ├── train.py
-    └── evaluate.py
-
-Future Improvements
-
-Automated retraining pipeline
-
-Feature importance API endpoint
-
-Frontend dashboard
-
-Logging and monitoring
-
-Model versioning
